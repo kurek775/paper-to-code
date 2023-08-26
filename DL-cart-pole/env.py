@@ -18,9 +18,8 @@ if __name__=='__main__':
 
         while not done:
             action = agent.choose_action(observation)
-          
             observation_, reward, done,_,info = env.step(action)
-            print(observation_)
+        
             score += reward
             agent.learn(observation, action, reward, observation_)
             observation = observation_
