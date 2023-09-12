@@ -41,7 +41,7 @@ class RepeatActionAndMaxFrame(gym.Wrapper):
         self.no_ops = no_ops
         self.fire_first = fire_first
 
-    def step(self,action):  
+    def step(self,action):
         t_reward = 0.0
         done = False
         for i in range(self.repeat):

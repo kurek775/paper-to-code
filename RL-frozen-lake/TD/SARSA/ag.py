@@ -33,8 +33,6 @@ class Agent():
         self.epsilon = self.epsilon * self.eps_dec if self.epsilon > self.eps_min else self.eps_min
 
     def learn(self, state, action, reward, state_):
-        actions = np.array([self.Q[(state_, a)] for a in range(self.n_actions)])
-        a_max = np.argmax(actions)
         action_ = self.choose_action(state_)
         self.Q[(state, action)] += self.lr * (reward + self.gamma * self.Q[(state_, action_)] - self.Q[(state, action)])
         self.decrement_epsilon()
